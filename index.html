@@ -3,25 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MidiaIndoorClient</title>
     <link rel="stylesheet" href="css_code/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital@1&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
+    <link rel="stylesheet" href="style.css">
 
-    <div id="" class="div_botoes">
+    <div id="" class="div_botão">
         <nav id="menu-hub">
         <ul>
-            <li><p>ola</p></li>
-            <li>ola2</li>
+            <button type="button" class="btn btn-light">Cadastro
+            </button>
+            <button type="button" class="btn btn-light">Listagem</button>
+            <button type="button" class="btn btn-light">Mídias</button>
         </ul>
         </nav>
     </div>
+    
+    <div class="container_main container-max" id="Cadastro">
+        <h1>Cadastro de Mídia</h1>
 
-    <div class="container_main">
+        <input class="input" type="text" id="nome_da_midia" placeholder="Nome da Midia">
 
+        <select id="escolha_foto_video" class="form-select p-1">
+            <option value="1">foto</option>
+            <option value="2">vídeo</option>
+        </select>
+
+        <select id="escolha_ativo_desligado" class="form-select p-1">
+            <option value="1">ativo</option>
+            <option value="2">desligado</option>
+        </select>
+        <img src="">
+        <input type="number" class="input" id="tempo" placeholder="Informe o tempo de exibição em segundos">
+        
+        <input type="date" id="dataInicial">
+        <input type="date" id="dataFinal">
     </div>
 
+
+    <div class="container_main"></div>
+    <footer class="footer_max"><p>Depois alguem ve o que colocar aqui</p</footer>
     <script src="script.js"></script>
 </body>
 </html>
