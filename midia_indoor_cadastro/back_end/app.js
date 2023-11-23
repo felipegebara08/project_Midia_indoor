@@ -73,10 +73,10 @@ app.post("/api/midia/", async(req, res) => {
 //Rota para o UPDATE
 app.put("/api/midia/id/:id", async(req,res) =>{
     try {
-        const {id ,nome, tipo, status, data_inicio, data_fim, tempo} = req.body
+        const {id ,nome, tipo, status, data_inicio, data_fim, url , tempo} = req.body
         const conection = await pool.getConnection()
         const sql = `UPDATE midia SET nome = "${nome}", tipo = "${tipo}", status = "${status}",
-                    data_inicio = "${data_inicio}", data_fim = "${data_fim}", tempo = "${tempo}}"
+                    data_inicio = "${data_inicio}", data_fim = "${data_fim}", url = "${url}" , tempo = "${tempo}}"
                     WHERE id = ${id}`
         console.log(sql)
         const [linhas] = await conection.execute(sql  )
