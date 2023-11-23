@@ -119,8 +119,8 @@ btn_select.addEventListener("click", async () => {
         <td class='text-start'>${dados.tempo}</td>
         <td class='text-start'>${dt_inicio}</td>
         <td class='text-start'>${dt_fim}</td>
-        <td><i onclick="editar(${dados.id})" class="bi bi-pencil-square"></td>
-        <td><i onclick="excluir(${dados.id})" class="bi bi-trash"></i></td
+        <td><i class="bi bi-pencil-square" onclick="editar(${dados.id})"></i></td>        
+        <td><i class="bi bi-trash" onclick ="excluir(${dados.id})"></i></td>        
         </tr>`;
             }
         } else if (opcao == "id") {
@@ -128,7 +128,7 @@ btn_select.addEventListener("click", async () => {
         <td>${array_resultado.id}</td>
         <td class='text-start'>${array_resultado.nome}</td>
         <td class='text-start'>${array_resultado.tipo}</td>
-        <td><i class="bi bi-pencil"></td>
+        <td><i class="bi bi-pencil"></i></td>
         <td><i class="bi bi-trash"></i></td>
         </tr>`;
         }
@@ -145,11 +145,30 @@ async function editar(id) {
     if (resposta.ok) { // verificar se retorna 200 - OK para a busca
         let dados = await resposta.json()
         console.clear()
-        console.log(dados)
         btn_tela_atualizar.click()
+
+        if (dados.tipo == "f") {
+            document.getElementById("tipo_editado").value = "1"
+        } else {
+            document.getElementById("tipo_editado").value = "2"
+        }
+
+        if (dados.status == "a") {
+            document.getElementById("status_editado").value = "1"
+        } else {
+            document.getElementById("status_editado").value = "2"
+        }
+
+        console.log(dados)
+        
         document.getElementById("nome_editado").value = dados.nome
-        document.getElementById("").value = dado.
-            document.getElementById("").value = dados.id
+        
+        
+        document.getElementById("tempo_editado").value = dados.tempo
+        document.getElementById("dataI_editado").value = dados.data_inicio.substr(0,10)
+        document.getElementById("dataF_editado").value = dados.data_fim.substr(0,10)
+        document.getElementById("id_editado").value = dados.id
+        document.getElementById("url_editado").value = dados.url
 
     }
 }

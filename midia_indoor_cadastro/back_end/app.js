@@ -34,14 +34,31 @@ app.get('/api/midia', async (req,res) => {
     }
 })
 
+//Rota para SELECT com ID
+app.get('/api/midia/id/:id', async (req,res) => {
+    try {
+        let id = req.params.id
+        const conection = await pool.getConnection()
+        const sql = "SELECT * FROM midia WHERE id = "+id
+        const [linhas] = await conection.execute(sql)
+        console.log(linhas)
+        conection.release()
+        res.json(linhas[0])
+
+        } catch(error) {
+            console.log(`O Erro que ocorreu foi: ${error}`)
+            res.send(500).json({error: "Deu algum erro na conexão"})
+        }
+})
+
 //Rota para o INSERT
 app.post("/api/midia/", async(req, res) => {
     try {
-        const {nome, tipo, status, data_inicio, data_fim, tempo} = req.body
+        const {nome, tipo, status, data_inicio, data_fim,url , tempo} = req.body
         const conection = await pool.getConnection()
-        const sql = `INSERT INTO midia (nome, tipo, status, data_inicio, data_fim, tempo) 
+        const sql = `INSERT INTO midia (nome, tipo, status, data_inicio, data_fim, url, tempo) 
                     VALUES ("${nome}", "${tipo}", "${status}", "${data_inicio}",
-                     "${data_fim}", "${tempo}")`
+                     "${data_fim}",${url} , "${tempo}")`
         console.log(sql)
         const [linhas] = await conection.execute(sql)
         conection.release()
@@ -54,7 +71,7 @@ app.post("/api/midia/", async(req, res) => {
 })
 
 //Rota para o UPDATE
-app.put("/api/midia/", async(req,res) =>{
+app.put("/api/midia/id/:id", async(req,res) =>{
     try {
         const {id ,nome, tipo, status, data_inicio, data_fim, tempo} = req.body
         const conection = await pool.getConnection()
