@@ -44,19 +44,37 @@ btn_cadastro.addEventListener("click", async () => {
     const url = document.getElementById("url").value
     const tempo = document.getElementById("tempo").value
 
+    if (nome == "" || nome == null)
+    {
+        alert("O nome não foi inserido!")
+    } else if (data_inicio == null || data_inicio == "")
+    {
+        alert("A data de início não foi inserida!")
+    } else if (data_fim == null || data_fim == "")
+    {
+        alert("Algum dado não foi inserido!")
+    } else if(url == "" || url == null) 
+    {
+        alert("Algum dado não foi inserido!")
+    } else if(tempo <= 0 || tempo == null || tempo == "") 
+    {
+        alert("Algum dado não foi inserido!")
+    } else {
+
     let dados = await fetch("http://localhost:3000/api/midia", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ nome: nome, tipo: tipo, status: status, data_inicio: data_inicio, data_fim: data_fim, url: url, tempo: tempo }),
+
     });
 
     if (dados.ok) {
         btn_tela_busca.click()
         btn_select.click()
     }
-
+    }
 })
 
 btn_select.addEventListener("click", async () => {
@@ -191,6 +209,7 @@ async function excluir(id) {
 }
 
 btn_atualizar_dados.addEventListener("click", async () => {
+    const id_atualizado = document.getElementById("id_editado").value
     const nome_atualizado = document.getElementById("nome_editado").value
     const tipo_atualizado = document.getElementById("tipo_editado").value
     const status_atualizado = document.getElementById("status_editado").value
@@ -199,12 +218,12 @@ btn_atualizar_dados.addEventListener("click", async () => {
     const url_atualizado = document.getElementById("url_editado").value
     const tempo_atualizado = document.getElementById("tempo_editado").value
 
-    let dados = await fetch("http://localhost:3000/api/midia", {
+    let dados = await fetch("http://localhost:3000/api/midia/", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nome: nome_atualizado, tipo: tipo_atualizado, status: status_atualizado, dataI: data_inicial_atualizado, dataF: data_final_atualizado, ulr: url_atualizado, tempo: tempo_atualizado, }),
+        body: JSON.stringify({ id: id_atualizado, nome: nome_atualizado, tipo: tipo_atualizado, status: status_atualizado, data_inicio: data_inicial_atualizado, data_fim: data_final_atualizado, url: url_atualizado, tempo: tempo_atualizado, }),
     });
 
     if (dados.ok) {
