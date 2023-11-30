@@ -18,11 +18,11 @@ const pool = mysql.createPool({
     queueLimit: 5
 })
 
-//Rota para SELECT
+
 app.get('/api/midia', async (req,res) => {
     try {
     const conection = await pool.getConnection()
-    const sql = "SELECT * FROM midia"
+    const sql = "SELECT * FROM midia WHERE status ="
     const [linhas] = await conection.execute(sql)
     console.log(linhas)
     conection.release()
