@@ -106,6 +106,32 @@ app.delete("/api/midia/:id", async(req, res) => {
     }
 })
 
+
+//rota para a midia
+app.get("/api/midia/mostrar", async (req,res) => {
+    try {
+        var today = new Date();
+        var ano = today.getFullYear();
+        var mes = today.getMonth()+1;
+        var dia = today.getDate();
+        var d = ano+"-"+mes+"-"+dia;
+        console.log(d);
+        
+        const conection = await pool.getConnection()
+        /*const sql = "SELECT status,data_inicio,data_fim,url,tempo FROM midia"*/
+        const sql = `SELECT * FROM midia WHERE data_inicio >= '${d}' AND data_fim >= '${d}'`;
+        console.log(sql)
+        const [linhas] = await conection.execute(sql)
+        console.log(linhas)
+        conection.release()
+        res.json(linhas)
+    
+        } catch(error) {
+            console.log(`O Erro que ocorreu foi: ${error}`)
+            res.send(500).json({error: "Deu algum erro na conexão"})
+        }
+})
+
 //Porta
 const porta = 3000
 app.listen(porta, () => {

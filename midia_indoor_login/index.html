@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
 </head>
 <style>
     body {
@@ -50,24 +51,47 @@
         display: none;
         margin-top: 20px;
     }
+    .container-main {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+  
+    max-width: 400px;
+  
+    margin: 0 auto;
+    padding-top: 20px;
+    margin-top: 180px;
+    padding: 30px;
+    padding-bottom: 20px;
+        
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+  }
+    .botão{
+    color:#fff;
+    background-color:#6610f2 ;
+    border-radius: 20px;
+    border: 0px;
+    padding: 10px;
+    }
+
 </style>
-<body> 
-<div class="container text-center row gap-2 border border-black box-shadow border-2 rounded bg-white mx-auto col-4">
-    <div class="container">
-        <div style="text-align:center">
-        <form method="POST" class="formLogin">
-            <h1>Login</h1>
-            <p>Digite os seus dados de acesso no campo abaixo.</p>
-            <div class="row g-3">
-            <input type="email" placeholder="Digite seu e-mail" autofocus="true"/>
-            <input type="password" placeholder="Digite sua senha"/>
-            <a href="/">Esqueci minha senha</a>
-            <input type="submit" value="Acessar" class="btn" />
-        </form>
+<body>
+    <div id="tela_cadastro" class="tela container-main " >
+        <h3>Login</h3>
+        <label for="titulo">Email/Usuario</label>
+        <input type="text" id="" >
+    
+        <label for="titulo">Senha</label>
+        <input type="text" id="" >
+        <a href="/">Esqueci minha senha</a>
+        <br>
+        <button class="botão" id="btn_cadastro">Avançar</button>
     </div>
-    </div>
-</div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-</html> 
+</html>
