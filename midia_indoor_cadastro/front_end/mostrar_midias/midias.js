@@ -6,8 +6,6 @@ async function editar() {
 
         let html = ""
 
-        const d = new Date();
-
         for (let i = 0; i < dados.length; i++) {
             const dado = dados[i]
 

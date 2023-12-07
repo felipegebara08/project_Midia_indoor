@@ -119,7 +119,7 @@ app.get("/api/midia/mostrar", async (req,res) => {
         
         const conection = await pool.getConnection()
         /*const sql = "SELECT status,data_inicio,data_fim,url,tempo FROM midia"*/
-        const sql = `SELECT * FROM midia WHERE data_inicio >= '${d}' AND data_fim >= '${d}'`;
+        const sql = `SELECT * FROM midia WHERE '${d}' > data_inicio  AND '${d}' < data_fim `;
         console.log(sql)
         const [linhas] = await conection.execute(sql)
         console.log(linhas)
