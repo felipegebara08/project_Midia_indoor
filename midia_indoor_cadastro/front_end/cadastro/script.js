@@ -21,18 +21,21 @@ btn_tela_cadastrar.addEventListener("click", () => {
     mostrar_div("tela_cadastro")
     ocultar_div("Tela_busca")
     ocultar_div("Tela_atualizar")
+    ocultar_div("tela_login")
 })
 
 btn_tela_busca.addEventListener("click", () => {
     mostrar_div("Tela_busca")
     ocultar_div("tela_cadastro")
     ocultar_div("Tela_atualizar")
+    ocultar_div("tela_login")
 })
 
 btn_tela_atualizar.addEventListener("click", () => {
     mostrar_div("Tela_atualizar")
     ocultar_div("tela_cadastro")
     ocultar_div("Tela_busca")
+    ocultar_div("tela_login")
 })
 
 btn_cadastro.addEventListener("click", async () => {

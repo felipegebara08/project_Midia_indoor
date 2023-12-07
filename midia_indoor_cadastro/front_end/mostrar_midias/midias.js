@@ -11,7 +11,7 @@ async function editar() {
 
                 let temp = dado.tempo
                 tempo_rotacao = temp * 1000
-                if (dado.status == "a" || dado.status == "2") {
+                if (dado.status == "a" || dado.status == "1") {
                     if (i <= 0) {
                         html +=
                             `<div class="carousel-item active" data-bs-interval="${tempo_rotacao}">
