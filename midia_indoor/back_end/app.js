@@ -50,6 +50,54 @@ app.get('/api/midia/id/:id', async (req,res) => {
             res.send(500).json({error: "Deu algum erro na conexão"})
         }
 })
+//Rota para SELECT com Nome
+app.get('/api/midia/nome/:nome', async (req,res) => {
+    try {
+        let nome = req.params.nome
+        const conection = await pool.getConnection()
+        const sql = "SELECT * FROM midia WHERE nome = "+nome
+        const [linhas] = await conection.execute(sql)
+        console.log(linhas)
+        conection.release()
+        res.json(linhas[0])
+
+        } catch(error) {
+            console.log(`O Erro que ocorreu foi: ${error}`)
+            res.send(500).json({error: "Deu algum erro na conexão"})
+        }
+})
+//Rota para SELECT com Tipo
+app.get('/api/midia/tipo/:tipo', async (req,res) => {
+    try {
+        let id = req.params.tipo
+        const conection = await pool.getConnection()
+        const sql = "SELECT * FROM midia WHERE tipo = "+tipo
+        const [linhas] = await conection.execute(sql)
+        console.log(linhas)
+        conection.release()
+        res.json(linhas[0])
+
+        } catch(error) {
+            console.log(`O Erro que ocorreu foi: ${error}`)
+            res.send(500).json({error: "Deu algum erro na conexão"})
+        }
+})
+//Rota para SELECT com Status
+app.get('/api/midia/status/:status', async (req,res) => {
+    try {
+        let id = req.params.status
+        const conection = await pool.getConnection()
+        const sql = "SELECT * FROM midia WHERE status = "+status
+        const [linhas] = await conection.execute(sql)
+        console.log(linhas)
+        conection.release()
+        res.json(linhas[0])
+
+        } catch(error) {
+            console.log(`O Erro que ocorreu foi: ${error}`)
+            res.send(500).json({error: "Deu algum erro na conexão"})
+        }
+})
 
 //Rota para o INSERT
 app.post("/api/midia/", async(req, res) => {

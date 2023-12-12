@@ -21,6 +21,7 @@
 
     .fonte {
         font-family: 'Satisfy', cursive;
+        text-align: center;
     }
 
     .ahover {
@@ -40,7 +41,7 @@
         visibility: hidden;
         -webkit-transform: scaleX(0);
         transform: scaleX(0);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
         border-radius: 5px;
     }
 
@@ -58,6 +59,50 @@
         display: none;
         margin-top: 20px;
     }
+    
+    .botão {
+    color:#fff;
+    background-color:#6610f2 ;
+    border-radius: 10px;
+    border: 0px;
+    padding: 10px;
+    margin-bottom: 10px;
+    }
+    .container-main {
+    display: none;
+    flex-direction: column;
+    flex: none;
+  
+    max-width: 400px;
+  
+    margin: 0 auto;
+    padding-top: 20px;
+    margin-top: 10px;
+    padding: 30px;
+    padding-bottom: 10px;
+        
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+    input{
+        margin: 5px;
+    }
+    .teste{
+        background-color: #ad3ffc;
+    }
+    .teste:hover{
+        background-color: #ad3ffc;
+    }
+    .teste:active{
+        background-color: #9500ff;
+    }
+    label {
+        text-align: center;
+    }
+
+    
+
 </style>
 
 <body>
@@ -69,15 +114,15 @@
                 <button type="button" id="btn_tela_cadastrar" class="btn ahover">Cadastro</button>
                 <button type="button" id="btn_tela_busca" class="btn ahover">Listagem</button>
                 <button type="button" id="btn_tela_atualizar" class="btn ahover">Atualizar Midias</button>
-                <a href="http://127.0.0.1:5501/midia_indoor_cadastro/front_end/mostrar_midias/midias.html"><button type="button"  class="btn ahover">Sua Midia</button></a>
-                <a href="http://127.0.0.1:5501/midia_indoor_cadastro/front_end/midia_indoor_login/index.html"><button type="button" class="btn ahover">Login</button></a>
+                <a href="/midia_indoor/front_end/mostrar_midias/midias.html"><button type="button"  class="btn ahover">Sua Midia</button></a>
+                <a href="/midia_indoor/front_end/midia_indoor_login/index.html"><button type="button" class="btn ahover">Login</button></a>
             </ul>
         </nav>
     </div>
 
 
     <!-- Tela de Cadastro -->
-    <div class="container text-center row gap-2 border border-black box-shadow border-2 rounded bg-white mx-auto col-4 ocult"
+    <div class="container-main ocult"
         id="tela_cadastro">
         <h1 class="fonte">Cadastro de Mídia</h1>
 
@@ -87,12 +132,12 @@
         <input class="input" type="text" id="url" placeholder="Url">
 
         <div class="mx-auto col-5">
-            <label for="tipo">Qual estilo para o Midia Indoor</label>
+            <label for="tipo" class="">Qual estilo para o Midia Indoor</label>
             <select id="tipo" class="form-select p-1">
                 <option value="f">foto</option>
                 <option value="v">vídeo</option>
             </select>
-            <label for="status">Qual status do Midia Indoor ?</label>
+            <label for="status" class="">Qual status do Midia Indoor ?</label>
             <select id="status" class="form-select p-1">
                 <option value="a">ativo</option>
                 <option value="i">inativo</option>
@@ -107,7 +152,7 @@
         <input type="date" id="data_fim">
 
         <div class="mx-auto">
-            <button class="btn btn-outline-success col-4" id="btn_cadastro">Cadastrar</button>
+            <button class=" btn btn-primary" id="btn_cadastro">Cadastrar</button>
         </div>
     </div>
 
@@ -132,7 +177,7 @@
     </div>
 
     <!-- Tela de atualizar midias-->
-    <div class="container text-center row gap-2 border border-black box-shadow border-2 rounded bg-white mx-auto col-4 ocult"
+    <div class="container-main ocult"
     id="Tela_atualizar">
     <h1 class="fonte">Atualizar midias</h1>
 
@@ -163,7 +208,7 @@
     <input type="date" id="dataF_editado">
 
     <div class="mx-auto">
-        <button class="btn btn-outline-success col-4" id="btn_atualizar_dados">Atualizar dados</button>
+        <button class="btn btn-primary" id="btn_atualizar_dados">Atualizar dados</button>
     </div>
 </div>
     

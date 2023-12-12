@@ -118,7 +118,7 @@ btn_select.addEventListener("click", async () => {
     if (resposta.ok) {
         html = html;
         let array_resultado = await resposta.json();
-        if (opcao == "todos" || opcao == "nome" || opcao == "tipo" || opcao == "status") {
+        if (opcao == "todos" || opcao == "id" || opcao == "nome" || opcao == "tipo" || opcao == "status") {
             for (const dados of array_resultado) {
                 let dt_inicio = dados.data_inicio.substr(8,2)+"/"+dados.data_inicio.substr(5,2)+"/"+dados.data_inicio.substr(0,4)
                 let dt_fim = dados.data_fim.substr(8,2)+"/"+dados.data_fim.substr(5,2)+"/"+dados.data_fim.substr(0,4)
@@ -144,13 +144,16 @@ btn_select.addEventListener("click", async () => {
         <td><i class="bi bi-trash" onclick ="excluir(${dados.id})"></i></td>        
         </tr>`;
             }
-        } else if (opcao == "id") {
+        } else {
             html += `<tr>                
-        <td>${array_resultado.id}</td>
-        <td class='text-start'>${array_resultado.nome}</td>
-        <td class='text-start'>${array_resultado.tipo}</td>
-        <td><i class="bi bi-pencil"></i></td>
-        <td><i class="bi bi-trash"></i></td>
+            <td class='text-start'>${dados.nome}</td>
+            <td class='text-start'>${tipo}</td>
+            <td class='text-start'>${status}</td>
+            <td class='text-start'>${dados.tempo}</td>
+            <td class='text-start'>${dt_inicio}</td>
+            <td class='text-start'>${dt_fim}</td>
+            <td><i class="bi bi-pencil-square" onclick="editar(${dados.id})"></i></td>        
+            <td><i class="bi bi-trash" onclick ="excluir(${dados.id})"></i></td>  
         </tr>`;
         }
 
