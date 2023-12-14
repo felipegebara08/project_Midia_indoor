@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Felipe Teixeira Gebara",
+  "author": "Felipe Teixeira Gebara, Jorge Gabriel Costa dos Santos, Igor Rodrigo de Souza Almeida",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
